@@ -1,1 +1,120 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$main-color:#AA0508;
+$light-color:#F8F9FA;
+$rating-star:#F7C971;
+$main-transition: 0.8s;
+$font-family:"Allerta Stencil", sans-serif;
+$font-family-all:"Encode Sans Condensed", sans-serif;
+$shadow:rgba(128, 128, 128, 0.562) 0px 2px 4px -1px;
+
+.allerta-stencil-regular {
+    font-family: "Allerta Stencil", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  body{
+    font-family: $font-family;
+  }
+
+  .text-main{
+    color: $main-color;
+  }
+
+  .bg-light{
+    background-color: $light-color;
+  }
+
+  .rating{
+    color: $rating-star;
+  }
+
+  .font-sm{
+    font-size: 12px;
+  }
+
+  .bg-main{
+    background-color: $main-color;
+  }
+
+  .main-btn{
+    background-color: $main-color;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 4px 8px;
+
+    &:disabled{
+        background-color: #aa05083a;;
+        color: rgba(255, 255, 255, 0.61);
+        cursor: not-allowed;
+    }
+
+  }
+
+  .product{
+    border-radius: 5px;
+    border: 1px solid $main-color;
+    padding: 4px;
+    box-shadow: $shadow;
+    overflow: hidden;
+    position: relative;
+   
+  }
+
+  .product:hover{
+    box-shadow: 0 0 10px #AA0508 ;
+  }
+
+   .main-btn{
+    transform: translateY(150%);
+    transition: transform  0.7s;
+  }
+   .product:hover .main-btn{
+    transform: translateY(0);
+  }
+  .active-link{
+    color: white !important;
+    background-color: $main-color !important;
+    border: 5px !important;
+
+  }
+
+i{
+  color: white;
+}
+.heart{
+ 
+  font-size: 40px;
+  position: absolute;
+  top: 5px;
+  right: -50px;
+  z-index: 99;
+  cursor: pointer;
+  transition: right .7s;
+
+
+}
+
+.product:hover .heart{
+
+
+  right: 5px;
+}
+
+.cat{
+  border-radius: 5px;
+  border: 1px solid $main-color;
+  box-shadow: $shadow;
+  cursor: pointer;
+  padding: 25px;
+}
+
+.cat:hover{
+  box-shadow: 0 0 10px #AA0508 ;
+}

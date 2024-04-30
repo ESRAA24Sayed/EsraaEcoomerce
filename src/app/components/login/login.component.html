@@ -1,0 +1,85 @@
+<div class="body d-flex min-vh-100 justify-content-around">
+  <div class="empty mt-5">
+    <img src="./assets/images/logo2.png" />
+  </div>
+
+  <div class="regist h-75 mt-5 w-50 p-3">
+    <section class="w-100 ms-auto">
+      <h1>Login Now</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="clickForm()">
+        <div class="div mb-2">
+          <label for="email">Email:</label>
+          <input
+            #inputEmail
+            formControlName="email"
+            type="email"
+            id="email"
+            class="form-control"
+          />
+
+          <div
+            class="div alert text-bg-dark"
+            *ngIf="
+              loginForm.get('email')?.errors &&
+              (loginForm.get('email')?.touched || inputEmail.value.length > 0)
+            "
+          >
+            <p *ngIf="loginForm.get('email')?.getError('required')">
+              email is required
+            </p>
+            <p *ngIf="loginForm.get('email')?.getError('email')">
+              email in valid
+            </p>
+          </div>
+        </div>
+
+        <div class="div mb-2">
+          <label for="password">Password:</label>
+          <input
+            #inputPassword
+            formControlName="password"
+            type="password"
+            id="password"
+            class="form-control"
+          />
+
+          <div
+            class="div alert text-bg-dark"
+            *ngIf="
+              loginForm.get('password')?.errors &&
+              (loginForm.get('password')?.touched ||
+                inputPassword.value.length > 0)
+            "
+          >
+            <p
+              *ngIf="
+                loginForm.get('passworloginForm')?.getError('requireloginForm')
+              "
+            >
+              password is required
+            </p>
+            <p *ngIf="loginForm.get('password')?.getError('pattern')">
+              password must start with Minimum eight characters, at least one
+              letter and one number
+            </p>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <button
+            [disabled]="loginForm.invalid"
+            class="main-btn me-auto d-block mt-3"
+          >
+            <i *ngIf="isLoad" class="fas fa-spinner fa-spin"></i>
+            Login
+          </button>
+
+          <a routerLink="/forget-pass" class="link-primary"> Forgot Password </a>
+        </div>
+        <p *ngIf="msgErr" class="alert alert-dark text-bg-danger">
+          {{ msgErr }}
+        </p>
+      </form>
+    </section>
+  </div>
+</div>
